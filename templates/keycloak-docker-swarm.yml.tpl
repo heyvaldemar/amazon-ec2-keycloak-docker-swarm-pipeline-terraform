@@ -15,13 +15,11 @@ services:
     <<: *default-opts
     image: bitnami/keycloak:${image_tag}
     environment:
-      KEYCLOAK_DATABASE_VENDOR: postgresql
-      KEYCLOAK_DATABASE_HOST: ${db_host}
-      KEYCLOAK_DATABASE_PORT: 5432
-      KEYCLOAK_DATABASE_NAME: ${db_name}
-      KEYCLOAK_DATABASE_USER: ${db_username}
-      KEYCLOAK_DATABASE_PASSWORD: ${db_password}
-      KEYCLOAK_DATABASE_SCHEMA: public
+      KC_DB_URL_HOST: ${db_host}
+      KC_DB: ${db_name}
+      KC_DB_USERNAME: ${db_username}
+      KC_DB_PASSWORD: ${db_password}
+      KC_DB_SCHEMA: public
       KEYCLOAK_ADMIN: ${admin_user}
       KEYCLOAK_ADMIN_PASSWORD: ${admin_user_password}
       KEYCLOAK_ENABLE_HEALTH_ENDPOINTS: 'true'
