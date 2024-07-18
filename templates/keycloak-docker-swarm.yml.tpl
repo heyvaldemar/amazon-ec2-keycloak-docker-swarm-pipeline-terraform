@@ -15,8 +15,9 @@ services:
     <<: *default-opts
     image: bitnami/keycloak:${image_tag}
     environment:
+      KC_DB: postgres
       KC_DB_URL_HOST: ${db_host}
-      KC_DB: ${db_name}
+      KC_DB_URL_DATABASE: ${db_name}
       KC_DB_USERNAME: ${db_username}
       KC_DB_PASSWORD: ${db_password}
       KC_DB_SCHEMA: public
