@@ -359,7 +359,7 @@ variable "dynamodb_terraform_state_lock_1_billing_mode" {
 variable "keycloak_image_tag" {
   description = "Docker image tag for the Keycloak instance"
   type        = string
-  default     = "24.0.5"
+  default     = "24.0"
 }
 
 variable "keycloak_external_url" {
