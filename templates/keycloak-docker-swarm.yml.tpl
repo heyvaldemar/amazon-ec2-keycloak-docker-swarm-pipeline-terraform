@@ -13,7 +13,8 @@ networks:
 services:
   keycloak:
     <<: *default-opts
-    image: bitnami/keycloak:${image_tag}
+    image: quay.io/keycloak/keycloak:${image_tag}
+    command: start-dev
     environment:
       KC_DB: postgres
       KC_DB_URL_HOST: ${db_host}
