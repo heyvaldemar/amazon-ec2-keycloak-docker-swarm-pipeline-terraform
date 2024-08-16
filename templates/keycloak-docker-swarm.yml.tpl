@@ -27,7 +27,6 @@ services:
       KEYCLOAK_ENABLE_HEALTH_ENDPOINTS: 'true'
       KEYCLOAK_ENABLE_STATISTICS: 'true'
       KC_HOSTNAME: ${trusted_domain}
-      KC_HTTP_RELATIVE_PATH: "/auth"
       KC_HTTP_ENABLED: 'true'
       KC_PROXY_HEADERS: 'xforwarded'
       PROXY_ADDRESS_FORWARDING: 'true'
