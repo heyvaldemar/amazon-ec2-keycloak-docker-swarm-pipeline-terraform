@@ -24,8 +24,7 @@ services:
       KC_DB_SCHEMA: public
       KEYCLOAK_ADMIN: ${admin_user}
       KEYCLOAK_ADMIN_PASSWORD: ${admin_user_password}
-      KEYCLOAK_ENABLE_HEALTH_ENDPOINTS: 'true'
-      KEYCLOAK_ENABLE_STATISTICS: 'true'
+      KC_HEALTH_ENABLED: 'true'
       KC_HOSTNAME: ${trusted_domain}
       KC_HTTP_ENABLED: 'true'
       KC_PROXY_HEADERS: 'xforwarded'
@@ -35,7 +34,12 @@ services:
     ports:
       - "8080:8080"
     healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
+      test: 
+      - "CMD-SHELL"
+      - |
+        exec 3<>/dev/tcp/localhost/9000 &&
+        echo -e 'GET /health/ready HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 &&
+        cat <&3 | tee /tmp/healthcheck.log | grep -q '200 OK'
       interval: 10s
       timeout: 5s
       retries: 3
