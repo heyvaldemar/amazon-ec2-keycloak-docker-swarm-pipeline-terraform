@@ -33,6 +33,7 @@ services:
       - keycloak-network
     ports:
       - "8080:8080"
+      - "9000:9000"
     healthcheck:
       test: 
       - "CMD-SHELL"
