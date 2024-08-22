@@ -27,7 +27,8 @@ ${keycloak_config_file}
 EOF
 
 # Set database host for Keycloak
-sudo sed -i "s/\(KEYCLOAK_DATABASE_HOST: \)\(.*\):5432/\1\2/" /opt/keycloak-docker-swarm.yml
+sudo sed -i '/KC_DB_URL_HOST/s/:5432//' /opt/keycloak-docker-swarm.yml
 
 # Deploy Keycloak stack in a Docker Swarm
 sudo docker stack deploy -c /opt/keycloak-docker-swarm.yml keycloak
+if [ $? -ne 0 ]; then exit 1; fi
