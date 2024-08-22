@@ -40,12 +40,7 @@ resource "aws_instance" "instance_1" {
 
   # Generate the user data script using the template and variable values
   user_data = templatefile("${path.root}/templates/user_data.sh.tpl", {
-    timestamp            = timestamp()
     keycloak_config_file = local.keycloak_config
-    db_host_install      = aws_db_instance.db_instance_1.endpoint
-    db_name_install      = var.rds_db_1_name
-    db_username_install  = local.rds_db_credentials_1["keycloak_username"]
-    db_password_install  = local.rds_db_credentials_1["keycloak_password"]
   })
 
   tags = {

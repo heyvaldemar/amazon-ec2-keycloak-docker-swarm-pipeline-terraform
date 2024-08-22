@@ -369,7 +369,7 @@ variable "keycloak_external_url" {
 }
 
 variable "keycloak_trusted_domain" {
-  description = "URL on which Keycloak will be reachable"
+  description = "Domain on which Keycloak will be reachable"
   type        = string
   default     = "keycloak.heyvaldemar.net"
 }

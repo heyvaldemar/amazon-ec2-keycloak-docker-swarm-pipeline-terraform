@@ -22,15 +22,15 @@ resource "aws_lb" "alb_1" {
 
 # Target Group creation
 resource "aws_lb_target_group" "alb_1_target_group_1" {
-  name     = "target-group-8080-keycloak-1"
-  port     = 8080
+  name     = "target-group-9000-keycloak-1"
+  port     = 9000
   protocol = "HTTP"
   vpc_id   = aws_vpc.vpc_1.id
 
   health_check {
     path                = "/health/ready"
     protocol            = "HTTP"
-    port                = "8080"
+    port                = "9000"
     interval            = 30
     timeout             = 10
     healthy_threshold   = 3
