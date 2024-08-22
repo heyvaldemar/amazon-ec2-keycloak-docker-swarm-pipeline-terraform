@@ -52,6 +52,15 @@ resource "aws_security_group" "ec2_security_group_1" {
     security_groups = [aws_security_group.alb_1_security_group_1.id]
   }
 
+  # Inbound port configuration for ALB on port 9000
+  ingress {
+    description     = "Allow inbound healthcheck traffic from ALB security group"
+    from_port       = 9000
+    to_port         = 9000
+    protocol        = "tcp"
+    security_groups = [aws_security_group.alb_1_security_group_1.id]
+  }
+
   # Inbound port configuration
   ingress {
     description = "Allow inbound SSH traffic"
