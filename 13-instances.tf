@@ -50,6 +50,10 @@ resource "aws_instance" "instance_1" {
     docker_password_install  = local.docker_hub_credentials_1["docker_password"]
   })
 
+  lifecycle {
+    ignore_changes = [user_data]
+  }
+
   tags = {
     Name = "keycloak-1"
   }
