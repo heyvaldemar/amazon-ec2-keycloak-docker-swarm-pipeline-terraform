@@ -14,7 +14,7 @@ services:
   keycloak:
     <<: *default-opts
     image: quay.io/keycloak/keycloak:${image_tag}
-    command: start-dev
+    command: start
     environment:
       KC_DB: postgres
       KC_DB_URL_HOST: ${db_host}
