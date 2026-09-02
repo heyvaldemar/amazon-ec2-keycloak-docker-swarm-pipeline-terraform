@@ -9,13 +9,13 @@ variable "region" {
 variable "db_secret_1_arn" {
   description = "The ARN of the AWS Secrets Manager secret that contains the credentials for the RDS instance"
   type        = string
-  default     = "arn:aws:secretsmanager:eu-west-1:080129930438:secret:keycloak-rds-1-clsfF0"
+  default     = "arn:aws:secretsmanager:YOUR-REGION-X:000000000000:secret:keycloak-rds-1-000000"
 }
 
 variable "keycloak_secret_1_arn" {
   description = "The ARN of the AWS Secrets Manager secret that contains the credentials for the Keycloak"
   type        = string
-  default     = "arn:aws:secretsmanager:eu-west-1:080129930438:secret:keycloak-1-JBbfS5"
+  default     = "arn:aws:secretsmanager:YOUR-REGION-X:000000000000:secret:keycloak-1-000000"
 }
 
 # Virtual Private Cloud Variables
@@ -82,14 +82,14 @@ variable "subnet_group_1_name" {
 variable "route53_zone_1_name" {
   description = "Domain name for the ACM certificate"
   type        = string
-  default     = "heyvaldemar.net"
+  default     = "example.com"
 }
 
 # AWS Certificate Manager Variables
 variable "acm_1_certificate_1_domain_name" {
   description = "Domain name for the ACM certificate"
   type        = string
-  default     = "keycloak.heyvaldemar.net"
+  default     = "keycloak.example.com"
 }
 
 # RDS Variables
@@ -365,11 +365,11 @@ variable "keycloak_image_tag" {
 variable "keycloak_external_url" {
   description = "URL on which Keycloak will be reachable"
   type        = string
-  default     = "https://keycloak.heyvaldemar.net"
+  default     = "https://keycloak.example.com"
 }
 
 variable "keycloak_trusted_domain" {
   description = "Domain on which Keycloak will be reachable"
   type        = string
-  default     = "keycloak.heyvaldemar.net"
+  default     = "keycloak.example.com"
 }

@@ -46,8 +46,6 @@ resource "aws_instance" "instance_1" {
     db_name_install      = var.rds_db_1_name
     db_username_install  = local.rds_db_credentials_1["keycloak_username"]
     db_password_install  = local.rds_db_credentials_1["keycloak_password"]
-    docker_username_install  = local.docker_hub_credentials_1["docker_username"]
-    docker_password_install  = local.docker_hub_credentials_1["docker_password"]
   })
 
   lifecycle {
