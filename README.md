@@ -1,6 +1,7 @@
 # Keycloak on EC2 in Docker Swarm: Terraform
 
 [![Terraform Verification](https://github.com/heyvaldemar/amazon-ec2-keycloak-docker-swarm-pipeline-terraform/actions/workflows/terraform-verification.yml/badge.svg?branch=main)](https://github.com/heyvaldemar/amazon-ec2-keycloak-docker-swarm-pipeline-terraform/actions/workflows/terraform-verification.yml)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/14899/badge)](https://www.bestpractices.dev/projects/14899)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository deploys Keycloak running in a single-node Docker Swarm on EC2, backed by RDS PostgreSQL, behind an ALB with an ACM certificate, DNS in Route 53, with a self-provisioned Terraform state backend. Flat, numbered `.tf` files, no modules to chase, every provider locked to an exact build.
